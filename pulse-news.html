@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ═══════════════════════════════════════════════
+  PULSE NEWS — State-of-the-Art News Platform
+  SEO-Optimised | Admin CMS | Live Publishing
+═══════════════════════════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PULSE NEWS — Breaking news, current affairs, world events, technology, politics, business and more. Stay informed with real-time updates.">
+<meta name="keywords" content="breaking news, current affairs, world news, politics, technology, business, sports, science">
+<meta name="author" content="PULSE NEWS">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="PULSE NEWS — Breaking News & Current Affairs">
+<meta property="og:description" content="Stay ahead with PULSE NEWS. Breaking stories, in-depth analysis, live updates.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://via.placeholder.com/1200x630/0d0d0d/e8ff00?text=PULSE+NEWS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PULSE NEWS — Breaking News">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="canonical" href="https://pulsenews.io">
+<title>PULSE NEWS — Breaking News & Current Affairs</title>
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  "name": "PULSE NEWS",
+  "url": "https://pulsenews.io",
+  "description": "Breaking news and current affairs platform",
+  "logo": {"@type":"ImageObject","url":"https://pulsenews.io/logo.png"}
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f5f2eb;
+  --paper2: #edeae2;
+  --pulse: #e8ff00;
+  --red: #e8001c;
+  --blue: #0028e8;
+  --text: #1a1a1a;
+  --text2: #555555;
+  --text3: #888888;
+  --border: #d4d0c6;
+  --card: #ffffff;
+  --nav-h: 68px;
+  --ticker-h: 36px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background:var(--paper);color:var(--text);font-family:'IBM Plex Sans',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--paper);}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:2px;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;font-family:'IBM Plex Sans',sans-serif;}
+
+/* ── NOISE TEXTURE ── */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.018;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* ── BREAKING TICKER ── */
+.ticker-bar{background:var(--red);height:var(--ticker-h);display:flex;align-items:center;overflow:hidden;position:relative;z-index:200;}
+.ticker-label{background:var(--ink);color:var(--pulse);font-family:'IBM Plex Mono';font-size:.7rem;font-weight:500;letter-spacing:.12em;padding:0 1.2rem;height:100%;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;text-transform:uppercase;}
+.ticker-track{flex:1;overflow:hidden;position:relative;}
+.ticker-content{display:flex;animation:tickerMove 35s linear infinite;width:max-content;}
+.ticker-content:hover{animation-play-state:paused;}
+.ticker-item{color:white;font-size:.78rem;font-weight:500;padding:0 2.5rem;white-space:nowrap;display:flex;align-items:center;gap:1rem;}
+.ticker-item::after{content:'◆';opacity:.4;font-size:.5rem;}
+@keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── NAV ── */
+nav{background:var(--ink);height:var(--nav-h);position:sticky;top:0;z-index:1000;border-bottom:3px solid var(--pulse);}
+.nav-inner{max-width:1400px;margin:0 auto;padding:0 2rem;height:100%;display:flex;align-items:center;gap:2rem;}
+.logo{font-family:'Playfair Display';font-weight:900;font-size:1.8rem;color:var(--paper);letter-spacing:-.02em;white-space:nowrap;cursor:pointer;transition:color .2s;}
+.logo span{color:var(--pulse);}
+.logo:hover{color:var(--pulse);}
+.nav-cats{display:flex;gap:0;flex:1;overflow-x:auto;scrollbar-width:none;}
+.nav-cats::-webkit-scrollbar{display:none;}
+.nav-cat{color:rgba(255,255,255,.65);font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 1rem;border-radius:4px;transition:all .2s;white-space:nowrap;border:none;background:none;}
+.nav-cat:hover,.nav-cat.active{color:var(--pulse);background:rgba(232,255,0,.08);}
+.nav-right{display:flex;align-items:center;gap:.8rem;flex-shrink:0;}
+.nav-search-wrap{position:relative;}
+.nav-search{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;padding:.45rem 1rem .45rem 2.4rem;border-radius:6px;font-size:.82rem;font-family:'IBM Plex Sans';outline:none;width:200px;transition:all .2s;}
+.nav-search::placeholder{color:rgba(255,255,255,.4);}
+.nav-search:focus{border-color:var(--pulse);background:rgba(232,255,0,.05);width:250px;}
+.search-icon{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.4);font-size:.9rem;pointer-events:none;}
+.btn-admin{background:var(--pulse);color:var(--ink);border:none;padding:.45rem 1.1rem;border-radius:6px;font-size:.78rem;font-weight:600;letter-spacing:.05em;transition:all .2s;}
+.btn-admin:hover{background:white;transform:translateY(-1px);}
+.live-dot{display:flex;align-items:center;gap:.4rem;color:var(--red);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+.live-dot::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--red);animation:livePulse 1.4s ease-in-out infinite;}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(232,0,28,.7)}70%{box-shadow:0 0 0 6px rgba(232,0,28,0)}}
+
+/* ── DATE BAR ── */
+.date-bar{background:var(--paper2);border-bottom:1px solid var(--border);padding:.4rem 2rem;display:flex;justify-content:space-between;align-items:center;max-width:none;}
+.date-bar-inner{max-width:1400px;margin:0 auto;width:100%;display:flex;justify-content:space-between;align-items:center;}
+.date-text{font-family:'IBM Plex Mono';font-size:.72rem;color:var(--text3);letter-spacing:.05em;}
+.weather-widget{font-size:.72rem;color:var(--text3);display:flex;align-items:center;gap:.5rem;}
+
+/* ── LAYOUT ── */
+.site-wrap{max-width:1400px;margin:0 auto;padding:2rem;}
+.main-grid{display:grid;grid-template-columns:1fr 340px;gap:2.5rem;align-items:start;}
+
+/* ── HERO ── */
+.hero-section{margin-bottom:2.5rem;}
+.hero-grid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto auto;gap:1.5px;background:var(--border);}
+.hero-card{background:var(--card);cursor:pointer;transition:opacity .2s;position:relative;overflow:hidden;}
+.hero-card:hover{opacity:.94;}
+.hero-card.main{grid-row:span 2;}
+.hero-img{width:100%;object-fit:cover;display:block;}
+.hero-img-placeholder{width:100%;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.hero-img-placeholder::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.01) 10px,rgba(255,255,255,.01) 20px);}
+.hero-img-placeholder .emoji{font-size:5rem;opacity:.3;position:relative;z-index:1;}
+.hero-card.main .hero-img-placeholder{height:480px;}
+.hero-card:not(.main) .hero-img-placeholder{height:220px;}
+.hero-content{padding:1.5rem;}
+.cat-tag{display:inline-block;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .7rem;border-radius:3px;margin-bottom:.7rem;}
+.cat-tag.breaking{background:var(--red);color:white;}
+.cat-tag.world{background:var(--blue);color:white;}
+.cat-tag.tech{background:#7c3aed;color:white;}
+.cat-tag.business{background:#059669;color:white;}
+.cat-tag.sports{background:#d97706;color:white;}
+.cat-tag.science{background:#0891b2;color:white;}
+.cat-tag.politics{background:#dc2626;color:white;}
+.cat-tag.culture{background:#db2777;color:white;}
+.cat-tag.health{background:#16a34a;color:white;}
+.cat-tag.default{background:var(--ink);color:var(--pulse);}
+.hero-card.main .headline{font-family:'Playfair Display';font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;line-height:1.15;letter-spacing:-.02em;margin-bottom:.8rem;}
+.hero-card:not(.main) .headline{font-family:'Playfair Display';font-size:1.1rem;font-weight:700;line-height:1.3;margin-bottom:.5rem;}
+.deck{font-size:.9rem;color:var(--text2);line-height:1.6;margin-bottom:.8rem;}
+.hero-card:not(.main) .deck{font-size:.82rem;}
+.meta{font-size:.72rem;color:var(--text3);font-family:'IBM Plex Mono';display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;}
+.meta .author{font-weight:500;color:var(--text2);}
+.meta .dot{color:var(--border);}
+.meta .reading-time{color:var(--text3);}
+
+/* ── SECTION HEADERS ── */
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:3px solid var(--ink);}
+.section-head h2{font-family:'Playfair Display';font-weight:900;font-size:1.3rem;letter-spacing:-.01em;}
+.section-head h2 span{color:var(--red);}
+.see-all{font-size:.75rem;color:var(--text3);font-weight:500;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--border);padding:.3rem .8rem;border-radius:4px;transition:all .2s;}
+.see-all:hover{background:var(--ink);color:white;border-color:var(--ink);}
+
+/* ── ARTICLE CARDS ── */
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2.5rem;}
+.article-card{background:var(--card);border:1px solid var(--border);border-radius:2px;overflow:hidden;cursor:pointer;transition:all .25s;position:relative;}
+.article-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.12);border-color:var(--ink);}
+.article-card-img{width:100%;object-fit:cover;}
+.article-card-img-placeholder{height:180px;display:flex;align-items:center;justify-content:center;font-size:3rem;}
+.article-card-body{padding:1.1rem;}
+.article-card-body .headline{font-family:'Playfair Display';font-weight:700;font-size:1rem;line-height:1.35;margin-bottom:.5rem;}
+.article-card-body .deck{font-size:.8rem;color:var(--text2);line-height:1.5;margin-bottom:.7rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.article-card-body .meta{font-size:.68rem;}
+.featured-ribbon{position:absolute;top:.8rem;right:-.2rem;background:var(--red);color:white;font-size:.6rem;font-weight:700;letter-spacing:.08em;padding:.2rem .8rem;text-transform:uppercase;}
+
+/* ── SIDEBAR ── */
+.sidebar{display:flex;flex-direction:column;gap:2rem;position:sticky;top:calc(var(--nav-h) + 1rem);}
+.sidebar-widget{background:var(--card);border:1px solid var(--border);}
+.widget-head{background:var(--ink);color:white;padding:.7rem 1rem;font-family:'Playfair Display';font-size:.9rem;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:.5rem;}
+.widget-head .pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--pulse);animation:livePulse 1.4s ease-in-out infinite;}
+.trending-list{list-style:none;}
+.trending-item{display:flex;align-items:flex-start;gap:.8rem;padding:.9rem 1rem;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
+.trending-item:last-child{border-bottom:none;}
+.trending-item:hover{background:var(--paper2);}
+.trending-num{font-family:'IBM Plex Mono';font-size:1.3rem;font-weight:500;color:var(--border);line-height:1;flex-shrink:0;min-width:28px;}
+.trending-item:hover .trending-num{color:var(--red);}
+.trending-info .t-headline{font-family:'Playfair Display';font-size:.88rem;font-weight:700;line-height:1.3;margin-bottom:.3rem;}
+.trending-info .t-meta{font-size:.67rem;color:var(--text3);font-family:'IBM Plex Mono';}
+.newsletter-widget{padding:1.2rem;}
+.newsletter-widget p{font-size:.82rem;color:var(--text2);line-height:1.5;margin-bottom:1rem;}
+.newsletter-form{display:flex;flex-direction:column;gap:.5rem;}
+.nl-input{border:1px solid var(--border);background:var(--paper2);color:var(--text);padding:.6rem .8rem;font-family:'IBM Plex Sans';font-size:.82rem;outline:none;transition:border-color .2s;}
+.nl-input:focus{border-color:var(--ink);}
+.nl-input::placeholder{color:var(--text3);}
+.btn-subscribe{background:var(--red);color:white;border:none;padding:.65rem;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:background .2s;}
+.btn-subscribe:hover{background:var(--ink);}
+.tags-cloud{padding:1rem;display:flex;flex-wrap:wrap;gap:.4rem;}
+.tag-chip{font-size:.7rem;border:1px solid var(--border);padding:.25rem .6rem;border-radius:3px;cursor:pointer;transition:all .2s;color:var(--text2);font-weight:500;}
+.tag-chip:hover{background:var(--ink);color:white;border-color:var(--ink);}
+
+/* ── OPINION / FEATURED STRIP ── */
+.strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-bottom:2.5rem;}
+.strip-card{background:var(--card);padding:1.2rem;cursor:pointer;transition:background .2s;}
+.strip-card:hover{background:var(--ink);}
+.strip-card:hover .strip-head,.strip-card:hover .strip-tag,.strip-card:hover .strip-meta{color:rgba(255,255,255,.7);}
+.strip-card:hover .strip-title{color:white;}
+.strip-tag{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--red);font-weight:600;margin-bottom:.5rem;}
+.strip-title{font-family:'Playfair Display';font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.5rem;}
+.strip-meta{font-size:.68rem;color:var(--text3);font-family:'IBM Plex Mono';}
+
+/* ── VIDEO / MULTIMEDIA ── */
+.video-card{background:var(--ink);border-radius:2px;overflow:hidden;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center;height:200px;transition:opacity .2s;}
+.video-card:hover{opacity:.85;}
+.video-emoji{font-size:4rem;opacity:.5;}
+.play-btn{position:absolute;width:56px;height:56px;background:rgba(232,255,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:transform .2s;}
+.video-card:hover .play-btn{transform:scale(1.1);}
+.video-info{padding:.8rem;}
+.video-title{font-family:'Playfair Display';font-size:.9rem;font-weight:700;margin-bottom:.3rem;}
+.video-meta{font-size:.68rem;color:var(--text3);font-family:'IBM Plex Mono';}
+
+/* ── FULL ARTICLE READER ── */
+.article-overlay{position:fixed;inset:0;background:rgba(13,13,13,.92);z-index:5000;display:none;overflow-y:auto;backdrop-filter:blur(6px);}
+.article-overlay.open{display:block;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.article-reader{max-width:750px;margin:3rem auto;background:var(--paper);padding:3rem;position:relative;}
+.reader-close{position:fixed;top:1.5rem;right:2rem;background:var(--pulse);color:var(--ink);border:none;width:44px;height:44px;border-radius:50%;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:1;}
+.reader-close:hover{background:var(--red);color:white;transform:scale(1.05);}
+.reader-cat{margin-bottom:1rem;}
+.reader-headline{font-family:'Playfair Display';font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.15;letter-spacing:-.02em;margin-bottom:1rem;}
+.reader-deck{font-size:1.1rem;color:var(--text2);line-height:1.6;border-left:4px solid var(--red);padding-left:1.2rem;margin-bottom:1.5rem;font-style:italic;}
+.reader-meta{font-family:'IBM Plex Mono';font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:2px solid var(--border);}
+.reader-meta .r-author{color:var(--text);font-weight:500;}
+.reader-img-placeholder{width:100%;height:350px;background:linear-gradient(135deg,#1a1a1a,#2d2d2d);display:flex;align-items:center;justify-content:center;font-size:6rem;margin-bottom:2rem;border-radius:2px;}
+.reader-body{font-size:1rem;line-height:1.8;color:var(--text);}
+.reader-body p{margin-bottom:1.2rem;}
+.reader-body h3{font-family:'Playfair Display';font-size:1.3rem;font-weight:700;margin:2rem 0 .8rem;}
+.reader-body blockquote{border-left:4px solid var(--pulse);padding:1rem 1.5rem;background:var(--paper2);margin:1.5rem 0;font-style:italic;font-size:1.05rem;}
+.reader-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+.share-bar{display:flex;gap:.7rem;margin-top:1.5rem;align-items:center;}
+.share-label{font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;}
+.share-btn{border:1px solid var(--border);background:transparent;color:var(--text);padding:.4rem .9rem;font-size:.75rem;border-radius:3px;transition:all .2s;font-family:'IBM Plex Sans';}
+.share-btn:hover{background:var(--ink);color:white;border-color:var(--ink);}
+
+/* ── ADMIN PANEL ── */
+.admin-overlay{position:fixed;inset:0;background:rgba(13,13,13,.97);z-index:6000;display:none;overflow-y:auto;}
+.admin-overlay.open{display:block;animation:fadeIn .3s ease;}
+.admin-panel{max-width:900px;margin:0 auto;padding:2rem;}
+.admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;padding-bottom:1rem;border-bottom:3px solid var(--pulse);}
+.admin-logo{font-family:'Playfair Display';font-weight:900;font-size:1.6rem;color:white;}
+.admin-logo span{color:var(--pulse);}
+.admin-subtitle{font-size:.75rem;color:rgba(255,255,255,.4);font-family:'IBM Plex Mono';letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem;}
+.admin-close{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:white;width:40px;height:40px;border-radius:6px;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.admin-close:hover{background:var(--red);border-color:var(--red);}
+.admin-tabs{display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:2rem;}
+.admin-tab{background:none;border:none;color:rgba(255,255,255,.5);font-size:.82rem;font-weight:500;padding:.7rem 1.2rem;letter-spacing:.05em;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-1px;}
+.admin-tab.active,.admin-tab:hover{color:var(--pulse);border-bottom-color:var(--pulse);}
+.admin-content{display:none;}
+.admin-content.active{display:block;}
+
+/* FORM STYLES */
+.form-section{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;}
+.form-section-title{font-family:'Playfair Display';font-size:1rem;font-weight:700;color:white;margin-bottom:1.2rem;padding-bottom:.7rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.form-row.full{grid-template-columns:1fr;}
+.form-group{display:flex;flex-direction:column;gap:.4rem;}
+.form-label{font-size:.72rem;color:rgba(255,255,255,.5);font-weight:500;letter-spacing:.08em;text-transform:uppercase;}
+.form-input,.form-select,.form-textarea{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:white;padding:.7rem 1rem;font-family:'IBM Plex Sans';font-size:.88rem;outline:none;border-radius:4px;transition:border-color .2s;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--pulse);}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,.25);}
+.form-select option{background:#1a1a1a;color:white;}
+.form-textarea{resize:vertical;min-height:120px;line-height:1.5;}
+.form-textarea.tall{min-height:250px;}
+.char-count{font-size:.68rem;color:rgba(255,255,255,.3);text-align:right;font-family:'IBM Plex Mono';}
+.form-hint{font-size:.68rem;color:rgba(255,255,255,.3);margin-top:.2rem;}
+.tag-input-wrap{display:flex;gap:.5rem;flex-wrap:wrap;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:.5rem;border-radius:4px;min-height:42px;align-items:center;}
+.tag-pill{background:rgba(232,255,0,.15);border:1px solid rgba(232,255,0,.3);color:var(--pulse);font-size:.72rem;padding:.2rem .6rem;border-radius:20px;display:flex;align-items:center;gap:.4rem;}
+.tag-pill button{background:none;border:none;color:var(--pulse);font-size:.9rem;line-height:1;padding:0;}
+.tag-text-input{background:none;border:none;color:white;font-family:'IBM Plex Sans';font-size:.82rem;outline:none;min-width:80px;flex:1;}
+.tag-text-input::placeholder{color:rgba(255,255,255,.25);}
+.toolbar{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem;padding:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-bottom:none;border-radius:4px 4px 0 0;}
+.tool-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:.3rem .6rem;font-size:.78rem;border-radius:3px;transition:all .15s;}
+.tool-btn:hover{background:rgba(232,255,0,.15);border-color:rgba(232,255,0,.3);color:var(--pulse);}
+.toolbar+.form-textarea{border-radius:0 0 4px 4px;}
+.emoji-palette{display:flex;gap:.3rem;flex-wrap:wrap;padding:.8rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:4px;margin-top:.5rem;}
+.emoji-opt{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:.4rem .6rem;font-size:1.2rem;cursor:pointer;transition:all .15s;line-height:1;}
+.emoji-opt:hover,.emoji-opt.selected{background:rgba(232,255,0,.2);border-color:var(--pulse);}
+.emoji-opt.selected::after{content:'✓';font-size:.6rem;position:absolute;}
+.preview-box{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:1rem;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.5;min-height:60px;white-space:pre-wrap;}
+.btn-publish{background:var(--pulse);color:var(--ink);border:none;padding:.85rem 2.5rem;font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;transition:all .2s;display:inline-flex;align-items:center;gap:.6rem;}
+.btn-publish:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(232,255,0,.3);}
+.btn-draft{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);padding:.85rem 1.8rem;font-size:.9rem;font-weight:500;border-radius:4px;transition:all .2s;}
+.btn-draft:hover{background:rgba(255,255,255,.15);}
+.form-actions{display:flex;gap:1rem;align-items:center;justify-content:flex-end;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08);}
+.success-banner{background:rgba(0,200,100,.1);border:1px solid rgba(0,200,100,.3);color:#4ade80;padding:1rem 1.2rem;border-radius:6px;font-size:.85rem;display:none;align-items:center;gap:.7rem;margin-bottom:1.5rem;}
+.success-banner.show{display:flex;}
+/* MANAGE TABLE */
+.articles-table{width:100%;border-collapse:collapse;}
+.articles-table th{background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:.7rem 1rem;text-align:left;font-weight:500;}
+.articles-table td{padding:.9rem 1rem;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.8);font-size:.82rem;vertical-align:middle;}
+.articles-table tr:hover td{background:rgba(255,255,255,.03);}
+.tbl-title{font-family:'Playfair Display';font-weight:700;font-size:.88rem;}
+.tbl-actions{display:flex;gap:.4rem;}
+.tbl-btn{border:none;padding:.3rem .7rem;font-size:.72rem;border-radius:3px;transition:all .15s;font-family:'IBM Plex Sans';}
+.tbl-btn.edit{background:rgba(232,255,0,.15);color:var(--pulse);}
+.tbl-btn.edit:hover{background:rgba(232,255,0,.3);}
+.tbl-btn.del{background:rgba(232,0,28,.15);color:#f87171;}
+.tbl-btn.del:hover{background:rgba(232,0,28,.3);}
+.status-badge{font-size:.65rem;padding:.2rem .6rem;border-radius:20px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;}
+.status-badge.published{background:rgba(74,222,128,.15);color:#4ade80;}
+.status-badge.draft{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);}
+/* ANALYTICS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+.stat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:1.2rem;}
+.stat-label{font-size:.68rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem;}
+.stat-val{font-family:'Playfair Display';font-size:2rem;font-weight:900;color:white;}
+.stat-change{font-size:.72rem;color:#4ade80;margin-top:.3rem;}
+.chart-placeholder{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:1.5rem;height:200px;display:flex;align-items:flex-end;gap:6px;overflow:hidden;}
+.bar{background:linear-gradient(to top,rgba(232,255,0,.3),rgba(232,255,0,.8));border-radius:2px 2px 0 0;flex:1;transition:opacity .2s;}
+.bar:hover{opacity:.7;}
+/* SEO PANEL */
+.seo-score{display:flex;align-items:center;gap:1.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:1.2rem;margin-bottom:1.5rem;}
+.seo-circle{width:70px;height:70px;border-radius:50%;background:conic-gradient(#4ade80 0% 82%,rgba(255,255,255,.1) 82%);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono';font-size:1rem;font-weight:700;color:white;flex-shrink:0;}
+.seo-label{font-size:.72rem;color:rgba(255,255,255,.5);margin-bottom:.3rem;}
+.seo-val{font-size:.88rem;color:white;font-weight:500;}
+.seo-checklist{display:flex;flex-direction:column;gap:.6rem;}
+.seo-check{display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,.7);}
+.seo-check.ok::before{content:'✓';color:#4ade80;font-weight:700;}
+.seo-check.warn::before{content:'⚠';color:#fbbf24;}
+.seo-check.err::before{content:'✗';color:#f87171;}
+
+/* ── TOAST ── */
+.toast-wrap{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:.5rem;align-items:center;}
+.toast{background:var(--ink);border:1px solid var(--pulse);color:white;padding:.75rem 1.5rem;font-size:.85rem;border-radius:4px;white-space:nowrap;box-shadow:0 8px 30px rgba(0,0,0,.4);animation:toastIn .4s ease;}
+@keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.toast.out{animation:toastOut .3s ease forwards;}
+@keyframes toastOut{to{opacity:0;transform:translateY(8px)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .main-grid{grid-template-columns:1fr;}
+  .sidebar{position:static;}
+  .articles-grid{grid-template-columns:repeat(2,1fr);}
+  .strip-grid{grid-template-columns:repeat(2,1fr);}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-card.main{grid-row:auto;}
+  .articles-grid{grid-template-columns:1fr;}
+  .strip-grid{grid-template-columns:1fr;}
+  .nav-inner{gap:1rem;}
+  .nav-cats{display:none;}
+  .nav-search{width:140px;}
+  .site-wrap{padding:1rem;}
+  .form-row{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.7);margin-top:4rem;}
+.footer-top{max-width:1400px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
+.footer-brand .logo{font-size:1.6rem;margin-bottom:1rem;}
+.footer-brand p{font-size:.82rem;line-height:1.6;color:rgba(255,255,255,.45);max-width:280px;}
+.footer-col h4{font-family:'Playfair Display';font-weight:700;color:white;margin-bottom:1rem;font-size:.95rem;}
+.footer-col a{display:block;font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:.6rem;transition:color .2s;cursor:pointer;}
+.footer-col a:hover{color:var(--pulse);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.2rem 2rem;max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.3);}
+.footer-badges{display:flex;gap:.5rem;}
+.f-badge{border:1px solid rgba(255,255,255,.1);padding:.25rem .7rem;border-radius:3px;font-size:.68rem;color:rgba(255,255,255,.3);}
+@media(max-width:768px){.footer-top{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<!-- ── BREAKING NEWS TICKER ── -->
+<div class="ticker-bar" id="tickerBar">
+  <div class="ticker-label">⚡ BREAKING</div>
+  <div class="ticker-track">
+    <div class="ticker-content" id="tickerContent">
+      <!-- filled by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">PULSE<span>.</span></div>
+    <div class="nav-cats">
+      <button class="nav-cat active" onclick="filterCat('All')">All</button>
+      <button class="nav-cat" onclick="filterCat('Breaking')">Breaking</button>
+      <button class="nav-cat" onclick="filterCat('World')">World</button>
+      <button class="nav-cat" onclick="filterCat('Politics')">Politics</button>
+      <button class="nav-cat" onclick="filterCat('Technology')">Technology</button>
+      <button class="nav-cat" onclick="filterCat('Business')">Business</button>
+      <button class="nav-cat" onclick="filterCat('Science')">Science</button>
+      <button class="nav-cat" onclick="filterCat('Sports')">Sports</button>
+      <button class="nav-cat" onclick="filterCat('Culture')">Culture</button>
+      <button class="nav-cat" onclick="filterCat('Health')">Health</button>
+    </div>
+    <div class="nav-right">
+      <div class="live-dot">LIVE</div>
+      <div class="nav-search-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="nav-search" type="search" placeholder="Search articles..." id="searchBox" oninput="searchArticles(this.value)" autocomplete="off">
+      </div>
+      <button class="btn-admin" onclick="openAdmin()">✍️ Admin</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── DATE BAR ── -->
+<div class="date-bar">
+  <div class="date-bar-inner">
+    <div class="date-text" id="dateText"></div>
+    <div class="weather-widget">🌤 24°C · New York · <span id="liveTime"></span></div>
+  </div>
+</div>
+
+<!-- ── MAIN SITE ── -->
+<div class="site-wrap">
+  <div class="main-grid">
+    <!-- LEFT COLUMN -->
+    <div>
+      <!-- HERO -->
+      <div class="hero-section" id="heroSection"></div>
+
+      <!-- LATEST NEWS -->
+      <div class="section-head">
+        <h2>Latest <span>News</span></h2>
+        <span class="see-all" onclick="filterCat('All')">See All →</span>
+      </div>
+      <div class="articles-grid" id="articlesGrid"></div>
+
+      <!-- OPINION / QUICK READS -->
+      <div class="section-head" style="margin-top:1rem;">
+        <h2>Quick <span>Reads</span></h2>
+      </div>
+      <div class="strip-grid" id="stripGrid"></div>
+
+      <!-- MULTIMEDIA -->
+      <div class="section-head">
+        <h2>Watch & <span>Listen</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2.5rem;" id="videoGrid"></div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <!-- TRENDING -->
+      <div class="sidebar-widget">
+        <div class="widget-head"><span class="pulse-dot"></span>Trending Now</div>
+        <ul class="trending-list" id="trendingList"></ul>
+      </div>
+
+      <!-- NEWSLETTER -->
+      <div class="sidebar-widget">
+        <div class="widget-head">📬 Daily Briefing</div>
+        <div class="newsletter-widget">
+          <p>Get the most important stories of the day delivered to your inbox, every morning.</p>
+          <div class="newsletter-form">
+            <input class="nl-input" type="email" placeholder="your@email.com" id="nlEmail">
+            <button class="btn-subscribe" onclick="subscribe()">Subscribe Free</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAGS CLOUD -->
+      <div class="sidebar-widget">
+        <div class="widget-head">🏷 Topics</div>
+        <div class="tags-cloud" id="tagsCloud"></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">PULSE<span>.</span></div>
+      <p>Trusted journalism for the digital age. Real-time news, in-depth analysis, and breaking stories from around the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Sections</h4>
+      <a onclick="filterCat('Breaking')">Breaking News</a>
+      <a onclick="filterCat('World')">World</a>
+      <a onclick="filterCat('Politics')">Politics</a>
+      <a onclick="filterCat('Technology')">Technology</a>
+      <a onclick="filterCat('Business')">Business</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a>About Us</a>
+      <a>Editorial Team</a>
+      <a>Careers</a>
+      <a>Advertise</a>
+      <a>Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a>Privacy Policy</a>
+      <a>Terms of Service</a>
+      <a>Cookie Settings</a>
+      <a>Corrections</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 PULSE NEWS. All Rights Reserved.</div>
+    <div class="footer-badges">
+      <div class="f-badge">🔐 SSL Secure</div>
+      <div class="f-badge">♿ WCAG 2.1</div>
+      <div class="f-badge">🌍 Global CDN</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── ARTICLE READER ── -->
+<div class="article-overlay" id="articleOverlay">
+  <button class="reader-close" onclick="closeArticle()">✕</button>
+  <div class="article-reader" id="articleReader"></div>
+</div>
+
+<!-- ── ADMIN PANEL ── -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-panel">
+    <div class="admin-header">
+      <div>
+        <div class="admin-logo">PULSE<span>.</span> Admin</div>
+        <div class="admin-subtitle">Content Management System</div>
+      </div>
+      <button class="admin-close" onclick="closeAdmin()">✕</button>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchTab('write')">✍️ Write Article</button>
+      <button class="admin-tab" onclick="switchTab('manage')">📋 Manage Articles</button>
+      <button class="admin-tab" onclick="switchTab('seo')">🔍 SEO Tools</button>
+      <button class="admin-tab" onclick="switchTab('analytics')">📊 Analytics</button>
+      <button class="admin-tab" onclick="switchTab('settings')">⚙️ Settings</button>
+    </div>
+
+    <!-- WRITE -->
+    <div class="admin-content active" id="tab-write">
+      <div class="success-banner" id="publishBanner">
+        <span>🎉</span>
+        <div><strong>Article Published!</strong> Your article is now live on PULSE NEWS.</div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Article Details</div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label class="form-label">Headline *</label>
+            <input class="form-input" id="artHeadline" placeholder="Write a compelling headline..." oninput="updatePreview();updateSEO()">
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label class="form-label">Deck / Subheadline</label>
+            <input class="form-input" id="artDeck" placeholder="One sentence that draws readers in..." oninput="updatePreview()">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Category *</label>
+            <select class="form-select" id="artCategory">
+              <option value="">Select Category</option>
+              <option>Breaking</option>
+              <option>World</option>
+              <option>Politics</option>
+              <option>Technology</option>
+              <option>Business</option>
+              <option>Science</option>
+              <option>Sports</option>
+              <option>Culture</option>
+              <option>Health</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Author</label>
+            <input class="form-input" id="artAuthor" placeholder="Reporter Name" value="PULSE Correspondent">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Reading Time</label>
+            <select class="form-select" id="artReadTime">
+              <option>2 min read</option>
+              <option>4 min read</option>
+              <option>6 min read</option>
+              <option>8 min read</option>
+              <option>10 min read</option>
+              <option>15 min read</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Featured Article?</label>
+            <select class="form-select" id="artFeatured">
+              <option value="no">No</option>
+              <option value="yes">Yes — Show in Hero</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Cover Image</div>
+        <div class="form-label" style="margin-bottom:.7rem;font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;">Choose Article Emoji / Icon</div>
+        <div class="emoji-palette" id="emojiPalette"></div>
+        <div class="form-hint" style="margin-top:.5rem;">Selected emoji will represent the article cover image</div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Article Body</div>
+        <div class="toolbar">
+          <button class="tool-btn" onclick="insertFmt('**','**')"><b>B</b></button>
+          <button class="tool-btn" onclick="insertFmt('_','_')"><i>I</i></button>
+          <button class="tool-btn" onclick="insertFmt('\n### ','')">H3</button>
+          <button class="tool-btn" onclick="insertFmt('\n> ','')">❝</button>
+          <button class="tool-btn" onclick="insertFmt('\n\n---\n\n','')">—</button>
+          <button class="tool-btn" onclick="insertFmt('\n• ','')">• List</button>
+          <button class="tool-btn" onclick="insertFmt('[Link Text](',')')">🔗</button>
+        </div>
+        <textarea class="form-textarea tall" id="artBody" placeholder="Write your article here...
+
+Use **bold** for emphasis
+Use _italic_ for style
+Use ### for subheadings
+Use > for blockquotes
+
+Tell the story clearly, accurately, and compellingly." oninput="updatePreview();updateSEO()"></textarea>
+        <div class="char-count" id="charCount">0 characters · 0 words</div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Tags & SEO</div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label class="form-label">Tags</label>
+            <div class="tag-input-wrap" id="tagWrap">
+              <input class="tag-text-input" id="tagInput" placeholder="Type tag + Enter..." onkeydown="addTag(event)">
+            </div>
+            <div class="form-hint">Press Enter to add each tag</div>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label class="form-label">Meta Description (SEO)</label>
+            <textarea class="form-textarea" id="artMeta" placeholder="Brief description for search engines (150-160 chars ideal)..." style="min-height:80px;" oninput="updateSEO()"></textarea>
+            <div class="char-count" id="metaCount">0 / 160</div>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label class="form-label">URL Slug</label>
+            <input class="form-input" id="artSlug" placeholder="auto-generated-from-headline">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Live Preview</div>
+        <div class="preview-box" id="previewBox">Your article preview will appear here as you type...</div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-draft" onclick="saveDraft()">💾 Save Draft</button>
+        <button class="btn-publish" onclick="publishArticle()">⚡ Publish Article</button>
+      </div>
+    </div>
+
+    <!-- MANAGE -->
+    <div class="admin-content" id="tab-manage">
+      <div class="form-section">
+        <div class="form-section-title">All Articles</div>
+        <table class="articles-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Author</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="manageTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SEO -->
+    <div class="admin-content" id="tab-seo">
+      <div class="seo-score">
+        <div class="seo-circle" id="seoCircle">82</div>
+        <div>
+          <div class="seo-label">Overall SEO Score</div>
+          <div class="seo-val">Good — Keep optimising</div>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">SEO Checklist</div>
+        <div class="seo-checklist" id="seoChecklist">
+          <div class="seo-check ok">Meta description present</div>
+          <div class="seo-check ok">Title tag optimised</div>
+          <div class="seo-check ok">Structured data (Schema.org) active</div>
+          <div class="seo-check ok">Open Graph tags set</div>
+          <div class="seo-check ok">Twitter Card configured</div>
+          <div class="seo-check ok">Canonical URL defined</div>
+          <div class="seo-check warn">Image alt text — check all images</div>
+          <div class="seo-check warn">Internal linking — add more links</div>
+          <div class="seo-check ok">Mobile responsive</div>
+          <div class="seo-check ok">SSL certificate active</div>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">Site Meta Settings</div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label class="form-label">Site Title</label>
+            <input class="form-input" value="PULSE NEWS — Breaking News & Current Affairs" id="siteTitle">
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label class="form-label">Site Description</label>
+            <textarea class="form-textarea" style="min-height:70px;" id="siteDesc">PULSE NEWS — Stay ahead with real-time breaking news, in-depth analysis, and current affairs coverage from around the world.</textarea>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label class="form-label">Global Keywords</label>
+            <input class="form-input" value="breaking news, current affairs, world news, politics, technology, business, science" id="siteKeywords">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-publish" onclick="saveSEO()">💾 Save SEO Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div class="admin-content" id="tab-analytics">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Total Articles</div><div class="stat-val" id="statTotal">0</div><div class="stat-change">↑ Growing</div></div>
+        <div class="stat-card"><div class="stat-label">Published</div><div class="stat-val" id="statPublished">0</div><div class="stat-change">↑ Live</div></div>
+        <div class="stat-card"><div class="stat-label">Drafts</div><div class="stat-val" id="statDrafts">0</div></div>
+        <div class="stat-card"><div class="stat-label">Est. Readers</div><div class="stat-val">12.4K</div><div class="stat-change">↑ +18%</div></div>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">Weekly Traffic (Simulated)</div>
+        <div class="chart-placeholder" id="trafficChart"></div>
+        <div style="display:flex;justify-content:space-between;padding:.5rem 0;font-size:.68rem;color:rgba(255,255,255,.3);font-family:'IBM Plex Mono';">
+          <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">Categories Breakdown</div>
+        <div id="catBreakdown" style="display:flex;flex-direction:column;gap:.5rem;"></div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="admin-content" id="tab-settings">
+      <div class="form-section">
+        <div class="form-section-title">Site Identity</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Site Name</label>
+            <input class="form-input" value="PULSE NEWS" id="siteName">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tagline</label>
+            <input class="form-input" value="Breaking News & Current Affairs" id="siteTagline">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Contact Email</label>
+            <input class="form-input" type="email" placeholder="editor@pulsenews.io">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Twitter Handle</label>
+            <input class="form-input" placeholder="@pulsenews">
+          </div>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">Ticker Settings</div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label class="form-label">Custom Ticker Text (one per line)</label>
+            <textarea class="form-textarea" id="tickerCustom" placeholder="Add custom breaking news items here, one per line..."></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-publish" onclick="updateTicker()">⚡ Update Ticker</button>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">Hosting & Export</div>
+        <p style="color:rgba(255,255,255,.5);font-size:.85rem;line-height:1.6;margin-bottom:1.2rem;">Export your entire news site as a single HTML file ready to upload to any web host.</p>
+        <div style="background:rgba(232,255,0,.06);border:1px solid rgba(232,255,0,.2);border-radius:6px;padding:1.2rem;margin-bottom:1.2rem;">
+          <div style="color:var(--pulse);font-size:.78rem;font-weight:600;margin-bottom:.8rem;">🚀 HOSTING OPTIONS</div>
+          <div style="color:rgba(255,255,255,.6);font-size:.82rem;line-height:2;">
+            📦 <strong style="color:white">Netlify Drop</strong> — Drag &amp; drop to netlify.com/drop<br>
+            🐙 <strong style="color:white">GitHub Pages</strong> — Push to GitHub repo → Settings → Pages<br>
+            ☁️ <strong style="color:white">Vercel</strong> — Run <code style="color:var(--pulse)">vercel deploy</code> in terminal<br>
+            🌍 <strong style="color:white">Cloudflare Pages</strong> — Free global CDN hosting
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-publish" onclick="exportSite()">📥 Download Site File</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── TOAST ── -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script>
+// ════════════════════════════════════════
+//  PULSE NEWS — FULL APPLICATION LOGIC
+// ════════════════════════════════════════
+
+// ── DEFAULT ARTICLES ──
+let articles = [
+  {id:1,headline:"Global Leaders Convene Emergency Summit on Climate Crisis",deck:"World powers gather in Geneva for unprecedented talks as new data shows acceleration of ice melt beyond previous projections.",body:`The world's most powerful leaders gathered today in Geneva for what many are calling the most critical climate summit in history. New data released by the International Climate Research Institute shows that Arctic ice melt is accelerating at a rate 40% faster than previously projected.\n\n### Key Developments\n\nThe summit, attended by representatives from 195 nations, opened with a stark warning from the UN Secretary-General: "We have perhaps five years to take meaningful action before the consequences become irreversible."\n\n> "The science is unambiguous. We must act now, not tomorrow, not next decade." — UN Secretary-General\n\nAmong the proposals on the table include a global carbon pricing mechanism, a fund of $500 billion for developing nations to transition to renewable energy, and binding emissions reduction targets with independent verification.\n\n### What Comes Next\n\nThe summit is expected to run for four days, with a final communiqué planned for Friday. Environmental groups have gathered outside the conference center, urging leaders to go beyond previous agreements and deliver concrete, measurable commitments.`,category:"World",author:"Sarah Chen",readTime:"6 min read",emoji:"🌍",tags:["Climate","World","Geneva","UN"],featured:true,status:"published",date:"March 10, 2026"},
+  {id:2,headline:"Tech Giants Face Record Antitrust Fines in EU Crackdown",deck:"European regulators impose $18 billion in combined penalties as digital market reform accelerates.",body:`European Union regulators have issued their largest-ever antitrust fines, totalling $18 billion across three major technology companies, in what officials describe as a watershed moment for digital market regulation.\n\n### The Fines\n\nThe penalties target anti-competitive practices including preferential treatment of own products, data harvesting without informed consent, and blocking third-party developers from accessing platform features.\n\n> "Today's action sends a clear signal: the era of tech impunity in Europe is over." — EU Commissioner for Competition\n\nIndustry analysts note that these fines, while record-breaking in absolute terms, represent a fraction of the companies' quarterly revenues, raising questions about whether financial penalties alone are sufficient deterrents.`,category:"Technology",author:"Marcus Webb",readTime:"5 min read",emoji:"💻",tags:["Tech","EU","Antitrust","Regulation"],featured:false,status:"published",date:"March 10, 2026"},
+  {id:3,headline:"Breakthrough Cancer Treatment Shows 94% Success Rate in Trials",deck:"A new immunotherapy approach has shown remarkable results in Phase 3 trials, offering hope to millions worldwide.",body:`Researchers at the Global Institute for Medical Research have announced results from their Phase 3 clinical trial of a revolutionary cancer immunotherapy that showed a 94% success rate in treating previously inoperable tumours.\n\n### How It Works\n\nThe treatment, known as CAR-T 3.0, uses genetically engineered immune cells trained to identify and destroy specific cancer markers. Unlike earlier versions, the new approach can target multiple cancer types simultaneously.\n\n> "We are looking at a potential paradigm shift in oncology. These results exceeded our most optimistic projections." — Lead Researcher Dr. Amara Osei\n\nThe treatment is expected to seek regulatory approval within 18 months, with the possibility of being available to patients by late 2027.`,category:"Health",author:"Dr. Priya Nair",readTime:"7 min read",emoji:"🔬",tags:["Health","Cancer","Medicine","Research"],featured:false,status:"published",date:"March 9, 2026"},
+  {id:4,headline:"Markets Surge as Central Banks Signal Rate Cuts Ahead",deck:"Global equities hit record highs after Federal Reserve hints at multiple interest rate reductions in 2026.",body:`Global stock markets surged Monday as the Federal Reserve Chairman signaled that the long-anticipated cycle of interest rate cuts may begin as early as next quarter, sending equity indices to record highs across multiple exchanges.\n\n### Market Reaction\n\nThe S&P 500 climbed 2.8% to close at an all-time high, while European markets followed suit with gains of between 1.9% and 2.4%. Asian futures suggest further gains when markets open Tuesday.\n\n> "The data supports a gradual easing of monetary policy. Inflation is on a sustainable path to our target." — Federal Reserve Chairman\n\nBond markets also rallied significantly, with the 10-year Treasury yield falling 18 basis points to its lowest level since early 2024. Mortgage rates, which have been a significant barrier to the housing market, are expected to follow suit.`,category:"Business",author:"James Okafor",readTime:"4 min read",emoji:"📈",tags:["Markets","Economy","Federal Reserve","Finance"],featured:false,status:"published",date:"March 10, 2026"},
+  {id:5,headline:"SpaceX Launches First Crewed Mars Precursor Mission",deck:"Six astronauts embark on a historic 14-month mission to test life-support and navigation systems for future Mars voyages.",body:`In what is being described as humanity's most ambitious space mission to date, SpaceX successfully launched six astronauts aboard the Starship II vessel on a 14-month deep space mission to test the systems that will one day support crewed missions to Mars.\n\n### Mission Details\n\nThe crew of three men and three women, drawn from NASA, ESA, and JAXA, will travel to a distance of approximately 1.2 million kilometres from Earth — further than any humans have ventured before. They will test communications delays, autonomous life support, psychological resilience, and advanced propulsion systems.\n\n> "This is our dress rehearsal for Mars. Every system will be stress-tested so that when we make the real journey, we know it will work." — Mission Commander\n\nThe mission is expected to return in May 2027, with data gathered forming the foundation of NASA's Mars mission planned for the early 2030s.`,category:"Science",author:"Elena Torres",readTime:"8 min read",emoji:"🚀",tags:["Space","SpaceX","Mars","NASA","Science"],featured:false,status:"published",date:"March 8, 2026"},
+  {id:6,headline:"AI Models Now Diagnose Disease Faster Than Top Specialists",deck:"A new study confirms that large language models match or exceed expert cardiologists in diagnosing heart conditions from medical imaging.",body:`A landmark study published in the New England Journal of Medicine has confirmed that the latest generation of AI diagnostic models can identify complex cardiac conditions from imaging data with accuracy that matches or exceeds that of board-certified cardiologists.\n\n### Study Findings\n\nThe study, which involved 48,000 cardiac scans from 12 hospitals across five countries, found that the AI model correctly diagnosed the condition in 97.3% of cases, compared to an average of 91.8% for human specialists.\n\n> "This doesn't mean replacing doctors. It means giving every patient access to world-class diagnostic support, regardless of where they live." — Lead Author\n\nMedical ethicists and regulatory bodies are now working to establish frameworks for AI-assisted diagnosis, including liability standards and integration protocols for clinical settings.`,category:"Technology",author:"Yuki Tanaka",readTime:"5 min read",emoji:"🤖",tags:["AI","Medicine","Technology","Health"],featured:false,status:"published",date:"March 9, 2026"},
+];
+
+let currentFilter = 'All';
+let selectedEmoji = '📰';
+let currentTags = [];
+let editingId = null;
+const EMOJIS = ['📰','🌍','💻','📈','🚀','🔬','🏛️','⚽','🎭','💊','⚡','🔥','🌊','🏆','🎯','💰','🧬','🛸','🌐','⚖️'];
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', () => {
+  updateClock();
+  setInterval(updateClock, 1000);
+  buildTicker();
+  renderHero();
+  renderArticles();
+  renderSidebar();
+  buildEmojiPalette();
+  renderAnalytics();
+  renderManageTable();
+  renderTrafficChart();
+});
+
+// ── CLOCK ──
+function updateClock() {
+  const now = new Date();
+  document.getElementById('dateText').textContent =
+    now.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('liveTime').textContent =
+    now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+
+// ── TICKER ──
+function buildTicker() {
+  const items = [
+    ...articles.filter(a=>a.status==='published').map(a=>a.headline),
+    "PULSE NEWS — Your trusted source for global news",
+    "Subscribe to our daily briefing for morning updates",
+  ];
+  const content = document.getElementById('tickerContent');
+  const doubled = [...items,...items];
+  content.innerHTML = doubled.map(t=>`<span class="ticker-item">${t}</span>`).join('');
+}
+
+// ── HERO ──
+function renderHero() {
+  const pub = articles.filter(a=>a.status==='published');
+  const featured = pub.find(a=>a.featured) || pub[0];
+  const secondary = pub.filter(a=>a.id!==featured?.id).slice(0,2);
+  const hero = document.getElementById('heroSection');
+  if (!pub.length) { hero.innerHTML = '<p style="color:var(--text3);padding:2rem;">No published articles yet. Add some via Admin!</p>'; return; }
+  hero.innerHTML = `
+    <div class="hero-grid">
+      <div class="hero-card main" onclick="openArticle(${featured.id})">
+        <div class="hero-img-placeholder" style="height:480px;"><div class="emoji" style="font-size:8rem;opacity:.25;">${featured.emoji}</div></div>
+        <div class="hero-content">
+          <span class="cat-tag ${featured.category.toLowerCase()}">${featured.category === 'Breaking' ? '🔴 BREAKING' : featured.category}</span>
+          <h2 class="headline">${featured.headline}</h2>
+          <p class="deck">${featured.deck}</p>
+          <div class="meta"><span class="author">${featured.author}</span><span class="dot">·</span><span>${featured.date}</span><span class="dot">·</span><span class="reading-time">${featured.readTime}</span></div>
+        </div>
+      </div>
+      ${secondary.map(a=>`
+        <div class="hero-card" onclick="openArticle(${a.id})">
+          <div class="hero-img-placeholder" style="height:200px;"><div class="emoji" style="font-size:5rem;opacity:.25;">${a.emoji}</div></div>
+          <div class="hero-content">
+            <span class="cat-tag ${a.category.toLowerCase()}">${a.category}</span>
+            <h3 class="headline">${a.headline}</h3>
+            <p class="deck">${a.deck}</p>
+            <div class="meta"><span class="author">${a.author}</span><span class="dot">·</span><span class="reading-time">${a.readTime}</span></div>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
+}
+
+// ── ARTICLES GRID ──
+function renderArticles(filter='All', search='') {
+  const grid = document.getElementById('articlesGrid');
+  let list = articles.filter(a=>a.status==='published');
+  if (filter!=='All') list = list.filter(a=>a.category===filter);
+  if (search) list = list.filter(a=>a.headline.toLowerCase().includes(search.toLowerCase())||a.deck.toLowerCase().includes(search.toLowerCase())||a.tags.some(t=>t.toLowerCase().includes(search.toLowerCase())));
+  if (!list.length) { grid.innerHTML='<p style="color:var(--text3);grid-column:1/-1;padding:2rem;">No articles found.</p>'; return; }
+  grid.innerHTML = list.map(a=>`
+    <article class="article-card" onclick="openArticle(${a.id})" itemscope itemtype="https://schema.org/NewsArticle">
+      ${a.featured ? '<div class="featured-ribbon">Featured</div>':''}
+      <div class="article-card-img-placeholder" style="background:linear-gradient(135deg,#f0ede6,#e8e4dc);">${a.emoji}</div>
+      <div class="article-card-body">
+        <span class="cat-tag ${a.category.toLowerCase()}" itemprop="articleSection">${a.category}</span>
+        <h3 class="headline" itemprop="headline">${a.headline}</h3>
+        <p class="deck" itemprop="description">${a.deck}</p>
+        <div class="meta">
+          <span class="author" itemprop="author">${a.author}</span>
+          <span class="dot">·</span>
+          <span itemprop="datePublished">${a.date}</span>
+          <span class="dot">·</span>
+          <span class="reading-time">${a.readTime}</span>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+// ── STRIP ──
+function renderArticles(filter='All', search='') {
+  const grid = document.getElementById('articlesGrid');
+  const strip = document.getElementById('stripGrid');
+  const videos = document.getElementById('videoGrid');
+  let list = articles.filter(a=>a.status==='published');
+  if (filter!=='All') list = list.filter(a=>a.category===filter);
+  if (search) list = list.filter(a=>
+    a.headline.toLowerCase().includes(search)||
+    a.deck.toLowerCase().includes(search)||
+    a.tags?.some(t=>t.toLowerCase().includes(search)));
+  if (!list.length) { grid.innerHTML='<p style="color:var(--text3);grid-column:1/-1;padding:2rem;">No articles match your search.</p>'; strip.innerHTML=''; return; }
+
+  // MAIN GRID
+  grid.innerHTML = list.slice(0,6).map(a=>`
+    <article class="article-card" onclick="openArticle(${a.id})" itemscope itemtype="https://schema.org/NewsArticle">
+      ${a.featured?'<div class="featured-ribbon">Featured</div>':''}
+      <div class="article-card-img-placeholder" style="height:180px;background:linear-gradient(135deg,#f5f2eb,#edeae2);font-size:3.5rem;display:flex;align-items:center;justify-content:center;">${a.emoji}</div>
+      <div class="article-card-body">
+        <span class="cat-tag ${a.category.toLowerCase()}">${a.category}</span>
+        <h3 class="headline" itemprop="headline">${a.headline}</h3>
+        <p class="deck">${a.deck}</p>
+        <div class="meta"><span class="author">${a.author}</span><span class="dot">·</span><span>${a.date}</span><span class="dot">·</span><span class="reading-time">${a.readTime}</span></div>
+      </div>
+    </article>
+  `).join('');
+
+  // STRIP
+  strip.innerHTML = list.slice(0,4).reverse().map(a=>`
+    <div class="strip-card" onclick="openArticle(${a.id})">
+      <div class="strip-tag">${a.category}</div>
+      <div class="strip-title">${a.headline}</div>
+      <div class="strip-meta">${a.author} · ${a.readTime}</div>
+    </div>
+  `).join('');
+
+  // VIDEOS (simulated)
+  const videoData = [
+    {title:"Climate Summit: Opening Ceremony Live", time:"2h ago", emoji:"🌍"},
+    {title:"Markets Report: Rate Cut Reaction", time:"4h ago", emoji:"📈"},
+    {title:"SpaceX Launch: Full Coverage", time:"Yesterday", emoji:"🚀"},
+  ];
+  videos.innerHTML = videoData.map(v=>`
+    <div>
+      <div class="video-card">
+        <div class="video-emoji">${v.emoji}</div>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">${v.title}</div>
+        <div class="video-meta">${v.time} · PULSE VIDEO</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── SIDEBAR ──
+function renderSidebar() {
+  const pub = articles.filter(a=>a.status==='published');
+  // Trending
+  document.getElementById('trendingList').innerHTML = pub.slice(0,5).map((a,i)=>`
+    <li class="trending-item" onclick="openArticle(${a.id})">
+      <span class="trending-num">0${i+1}</span>
+      <div class="trending-info">
+        <div class="t-headline">${a.headline}</div>
+        <div class="t-meta">${a.category} · ${a.readTime}</div>
+      </div>
+    </li>
+  `).join('');
+
+  // Tags
+  const allTags = [...new Set(articles.flatMap(a=>a.tags||[]))];
+  document.getElementById('tagsCloud').innerHTML = allTags.map(t=>`
+    <span class="tag-chip" onclick="searchArticles('${t}')">${t}</span>
+  `).join('');
+}
+
+// ── FILTER / SEARCH ──
+function filterCat(cat) {
+  currentFilter = cat;
+  document.querySelectorAll('.nav-cat').forEach(b=>b.classList.toggle('active', b.textContent===cat||(cat==='All'&&b.textContent==='All')));
+  renderHero();
+  renderArticles(cat,'');
+  renderSidebar();
+}
+
+function searchArticles(val) {
+  renderArticles(currentFilter, val.toLowerCase());
+}
+
+// ── ARTICLE READER ──
+function openArticle(id) {
+  const a = articles.find(x=>x.id===id);
+  if(!a) return;
+  const overlay = document.getElementById('articleOverlay');
+  const reader = document.getElementById('articleReader');
+  const tags = (a.tags||[]).map(t=>`<span class="tag-chip" style="font-size:.72rem;">${t}</span>`).join('');
+  const bodyHTML = formatBody(a.body||'No content yet.');
+  reader.innerHTML = `
+    <div class="reader-cat"><span class="cat-tag ${a.category.toLowerCase()}">${a.category}</span></div>
+    <h1 class="reader-headline">${a.headline}</h1>
+    <p class="reader-deck">${a.deck}</p>
+    <div class="reader-meta">
+      <span class="r-author">${a.author}</span>
+      <span>·</span><span>${a.date}</span>
+      <span>·</span><span>${a.readTime}</span>
+    </div>
+    <div class="reader-img-placeholder">${a.emoji}</div>
+    <div class="reader-body">${bodyHTML}</div>
+    <div class="reader-tags" style="margin-top:2rem;">${tags}</div>
+    <div class="share-bar" style="margin-top:1.5rem;">
+      <span class="share-label">Share:</span>
+      <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+      <button class="share-btn">𝕏 Twitter</button>
+      <button class="share-btn">📘 Facebook</button>
+      <button class="share-btn">💼 LinkedIn</button>
+    </div>`;
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function formatBody(text) {
+  return text
+    .split('\n\n').map(p=>p.trim()).filter(Boolean)
+    .map(p=>{
+      if(p.startsWith('### ')) return `<h3>${p.slice(4)}</h3>`;
+      if(p.startsWith('> ')) return `<blockquote>${p.slice(2)}</blockquote>`;
+      if(p.startsWith('---')) return `<hr style="border:none;border-top:1px solid var(--border);margin:1.5rem 0;">`;
+      return `<p>${p.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/_(.*?)_/g,'<em>$1</em>')}</p>`;
+    }).join('');
+}
+
+function closeArticle() {
+  document.getElementById('articleOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function copyLink() { showToast('🔗 Link copied to clipboard!'); }
+
+// ── ADMIN ──
+function openAdmin() { document.getElementById('adminOverlay').classList.add('open'); document.body.style.overflow='hidden'; updateStats(); }
+function closeAdmin() { document.getElementById('adminOverlay').classList.remove('open'); document.body.style.overflow=''; }
+
+function switchTab(tab) {
+  document.querySelectorAll('.admin-tab').forEach((t,i)=>{
+    const tabs=['write','manage','seo','analytics','settings'];
+    t.classList.toggle('active',tabs[i]===tab);
+  });
+  document.querySelectorAll('.admin-content').forEach(c=>c.classList.remove('active'));
+  document.getElementById(`tab-${tab}`).classList.add('active');
+  if(tab==='manage') renderManageTable();
+  if(tab==='analytics') { updateStats(); renderTrafficChart(); }
+}
+
+// ── EMOJI PALETTE ──
+function buildEmojiPalette() {
+  document.getElementById('emojiPalette').innerHTML = EMOJIS.map(e=>`
+    <button class="emoji-opt ${e===selectedEmoji?'selected':''}" onclick="selectEmoji('${e}')" title="${e}">${e}</button>
+  `).join('');
+}
+function selectEmoji(e) {
+  selectedEmoji = e;
+  document.querySelectorAll('.emoji-opt').forEach(b=>b.classList.toggle('selected',b.textContent===e));
+}
+
+// ── TAGS ──
+function addTag(e) {
+  if(e.key!=='Enter') return;
+  const val = e.target.value.trim();
+  if(!val||currentTags.includes(val)) { e.target.value=''; return; }
+  currentTags.push(val);
+  e.target.value='';
+  renderTagPills();
+}
+function removeTag(t) { currentTags=currentTags.filter(x=>x!==t); renderTagPills(); }
+function renderTagPills() {
+  const wrap = document.getElementById('tagWrap');
+  const input = document.getElementById('tagInput');
+  wrap.innerHTML = currentTags.map(t=>`
+    <span class="tag-pill">${t}<button onclick="removeTag('${t}')">×</button></span>
+  `).join('');
+  wrap.appendChild(input);
+  input.focus();
+}
+
+// ── FORMATTING ──
+function insertFmt(before, after) {
+  const ta = document.getElementById('artBody');
+  const s = ta.selectionStart, e = ta.selectionEnd;
+  const selected = ta.value.substring(s,e);
+  ta.value = ta.value.substring(0,s)+before+selected+after+ta.value.substring(e);
+  ta.focus();
+  updatePreview();
+}
+
+// ── PREVIEW ──
+function updatePreview() {
+  const h = document.getElementById('artHeadline').value;
+  const d = document.getElementById('artDeck').value;
+  const b = document.getElementById('artBody').value;
+  const word = b.trim().split(/\s+/).filter(Boolean).length;
+  document.getElementById('charCount').textContent = `${b.length} characters · ${word} words`;
+  document.getElementById('previewBox').textContent = [h&&`HEADLINE: ${h}`,d&&`DECK: ${d}`,b&&`\n${b.substring(0,300)}${b.length>300?'...':''}`].filter(Boolean).join('\n') || 'Preview will appear here...';
+  // Auto-slug
+  if(h) document.getElementById('artSlug').value = h.toLowerCase().replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').substring(0,60);
+}
+
+// ── SEO UPDATE ──
+function updateSEO() {
+  const meta = document.getElementById('artMeta').value;
+  document.getElementById('metaCount').textContent = `${meta.length} / 160`;
+  const h = document.getElementById('artHeadline').value;
+  const b = document.getElementById('artBody').value;
+  let score = 0;
+  if(h.length>10) score+=20;
+  if(meta.length>=120&&meta.length<=160) score+=25; else if(meta.length>0) score+=10;
+  if(b.length>200) score+=20;
+  if(currentTags.length>0) score+=15;
+  if(document.getElementById('artCategory').value) score+=10;
+  if(selectedEmoji) score+=10;
+  const circle = document.getElementById('seoCircle');
+  if(circle) { circle.textContent=score; circle.style.background=`conic-gradient(${score>70?'#4ade80':score>40?'#fbbf24':'#f87171'} 0% ${score}%,rgba(255,255,255,.1) ${score}%)`; }
+}
+
+// ── PUBLISH ──
+function publishArticle() {
+  const h = document.getElementById('artHeadline').value.trim();
+  const cat = document.getElementById('artCategory').value;
+  if(!h) { showToast('⚠️ Please add a headline'); return; }
+  if(!cat) { showToast('⚠️ Please select a category'); return; }
+  const body = document.getElementById('artBody').value.trim();
+  const deck = document.getElementById('artDeck').value.trim() || body.substring(0,120)+'...';
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  if(editingId) {
+    const idx = articles.findIndex(a=>a.id===editingId);
+    if(idx>-1) { articles[idx]={...articles[idx],headline:h,deck,body,category:cat,author:document.getElementById('artAuthor').value||'PULSE Correspondent',readTime:document.getElementById('artReadTime').value,emoji:selectedEmoji,tags:[...currentTags],featured:document.getElementById('artFeatured').value==='yes',status:'published',date:dateStr}; }
+    editingId=null;
+    showToast('✅ Article updated!');
+  } else {
+    const newArticle={id:Date.now(),headline:h,deck,body,category:cat,author:document.getElementById('artAuthor').value||'PULSE Correspondent',readTime:document.getElementById('artReadTime').value,emoji:selectedEmoji,tags:[...currentTags],featured:document.getElementById('artFeatured').value==='yes',status:'published',date:dateStr};
+    articles.unshift(newArticle);
+    showToast('⚡ Article published live!');
+  }
+  document.getElementById('publishBanner').classList.add('show');
+  setTimeout(()=>document.getElementById('publishBanner').classList.remove('show'),4000);
+  clearForm();
+  renderHero(); renderArticles(currentFilter,''); renderSidebar(); buildTicker(); renderManageTable(); updateStats();
+}
+
+function saveDraft() {
+  const h = document.getElementById('artHeadline').value.trim();
+  if(!h) { showToast('⚠️ Add a headline first'); return; }
+  const body = document.getElementById('artBody').value.trim();
+  const deck = document.getElementById('artDeck').value.trim() || body.substring(0,100)+'...';
+  const now = new Date();
+  articles.unshift({id:Date.now(),headline:h,deck,body,category:document.getElementById('artCategory').value||'Breaking',author:document.getElementById('artAuthor').value||'PULSE Correspondent',readTime:document.getElementById('artReadTime').value,emoji:selectedEmoji,tags:[...currentTags],featured:false,status:'draft',date:now.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})});
+  showToast('💾 Draft saved');
+  clearForm();
+  renderManageTable(); updateStats();
+}
+
+function clearForm() {
+  ['artHeadline','artDeck','artBody','artMeta','artSlug'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('artCategory').value='';
+  document.getElementById('artFeatured').value='no';
+  document.getElementById('artAuthor').value='PULSE Correspondent';
+  currentTags=[]; renderTagPills(); selectedEmoji='📰'; buildEmojiPalette();
+  document.getElementById('previewBox').textContent='Your article preview will appear here as you type...';
+  document.getElementById('charCount').textContent='0 characters · 0 words';
+  editingId=null;
+}
+
+// ── MANAGE TABLE ──
+function renderManageTable() {
+  document.getElementById('manageTableBody').innerHTML = articles.map(a=>`
+    <tr>
+      <td><span class="tbl-title">${a.headline.substring(0,60)}${a.headline.length>60?'...':''}</span></td>
+      <td><span class="cat-tag ${a.category.toLowerCase()}" style="font-size:.65rem;">${a.category}</span></td>
+      <td>${a.author}</td>
+      <td><span class="status-badge ${a.status}">${a.status}</span></td>
+      <td style="font-family:'IBM Plex Mono';font-size:.72rem;">${a.date}</td>
+      <td><div class="tbl-actions">
+        <button class="tbl-btn edit" onclick="editArticle(${a.id})">Edit</button>
+        <button class="tbl-btn" style="background:rgba(74,222,128,.15);color:#4ade80;" onclick="togglePublish(${a.id})">${a.status==='published'?'Unpublish':'Publish'}</button>
+        <button class="tbl-btn del" onclick="deleteArticle(${a.id})">Delete</button>
+      </div></td>
+    </tr>
+  `).join('');
+}
+
+function editArticle(id) {
+  const a = articles.find(x=>x.id===id);
+  if(!a) return;
+  editingId=id;
+  switchTab('write');
+  document.getElementById('artHeadline').value = a.headline;
+  document.getElementById('artDeck').value = a.deck;
+  document.getElementById('artBody').value = a.body||'';
+  document.getElementById('artCategory').value = a.category;
+  document.getElementById('artAuthor').value = a.author;
+  document.getElementById('artFeatured').value = a.featured?'yes':'no';
+  selectedEmoji = a.emoji||'📰'; buildEmojiPalette();
+  currentTags = [...(a.tags||[])]; renderTagPills();
+  updatePreview();
+  showToast('✏️ Editing: '+a.headline.substring(0,40));
+}
+
+function togglePublish(id) {
+  const a = articles.find(x=>x.id===id);
+  if(a) { a.status = a.status==='published'?'draft':'published'; }
+  renderManageTable(); renderHero(); renderArticles(currentFilter,''); renderSidebar(); updateStats();
+  showToast(a.status==='published'?'✅ Article published!':'📦 Moved to drafts');
+}
+
+function deleteArticle(id) {
+  articles = articles.filter(a=>a.id!==id);
+  renderManageTable(); renderHero(); renderArticles(currentFilter,''); renderSidebar(); buildTicker(); updateStats();
+  showToast('🗑 Article deleted');
+}
+
+// ── ANALYTICS ──
+function updateStats() {
+  const pub = articles.filter(a=>a.status==='published').length;
+  const dft = articles.filter(a=>a.status==='draft').length;
+  const st = document.getElementById('statTotal'); if(st) st.textContent=articles.length;
+  const sp = document.getElementById('statPublished'); if(sp) sp.textContent=pub;
+  const sd = document.getElementById('statDrafts'); if(sd) sd.textContent=dft;
+  // Cat breakdown
+  const cbd = document.getElementById('catBreakdown');
+  if(cbd) {
+    const cats = {}; articles.forEach(a=>{ cats[a.category]=(cats[a.category]||0)+1; });
+    cbd.innerHTML = Object.entries(cats).map(([c,n])=>`
+      <div style="display:flex;align-items:center;gap:.8rem;">
+        <span class="cat-tag ${c.toLowerCase()}" style="font-size:.65rem;min-width:80px;text-align:center;">${c}</span>
+        <div style="flex:1;background:rgba(255,255,255,.06);border-radius:2px;height:8px;overflow:hidden;">
+          <div style="height:100%;background:rgba(232,255,0,.6);width:${Math.min(100,(n/articles.length)*100*2)}%;transition:width .5s;"></div>
+        </div>
+        <span style="font-size:.72rem;color:rgba(255,255,255,.4);font-family:'IBM Plex Mono';min-width:20px;">${n}</span>
+      </div>
+    `).join('');
+  }
+}
+
+function renderTrafficChart() {
+  const chart = document.getElementById('trafficChart');
+  if(!chart) return;
+  const vals = [45,78,62,95,87,110,98];
+  const max = Math.max(...vals);
+  chart.innerHTML = vals.map(v=>`<div class="bar" style="height:${(v/max)*100}%;"></div>`).join('');
+}
+
+// ── TICKER UPDATE ──
+function updateTicker() {
+  const custom = document.getElementById('tickerCustom')?.value.split('\n').filter(Boolean);
+  if(custom?.length) showToast('⚡ Ticker updated!');
+  buildTicker();
+}
+
+// ── SEO SAVE ──
+function saveSEO() {
+  const title = document.getElementById('siteTitle').value;
+  if(title) document.title = title;
+  showToast('✅ SEO settings saved!');
+}
+
+// ── SUBSCRIBE ──
+function subscribe() {
+  const email = document.getElementById('nlEmail').value;
+  if(!email||!email.includes('@')) { showToast('⚠️ Enter a valid email'); return; }
+  document.getElementById('nlEmail').value='';
+  showToast('📬 Subscribed! Welcome to PULSE.');
+}
+
+// ── EXPORT ──
+function exportSite() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html],{type:'text/html'});
+  const a = document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='pulse-news.html'; a.click();
+  showToast('📥 Site downloaded! Upload to your host.');
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  const wrap = document.getElementById('toastWrap');
+  const t = document.createElement('div'); t.className='toast'; t.textContent=msg;
+  wrap.appendChild(t);
+  setTimeout(()=>{ t.classList.add('out'); setTimeout(()=>t.remove(),300); }, 3000);
+}
+</script>
+</body>
+</html>
